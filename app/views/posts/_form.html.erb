@@ -1,0 +1,5 @@
+<p><%= form_with model: @post, url: posts_path, local: true do |f| %>
+    <%= f.text_field :body %>
+    <%= f.submit "送信" %>
+  <% end %>
+</p>
