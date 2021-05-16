@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-
   PER_PAGE = 10
 
   def index
+    @post = Post.new
     @posts = Post.all.order(created_at: :desc).page(params[:page]).per(PER_PAGE)
   end
 
@@ -12,9 +12,8 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
-    params.permit(:body)
+    params.require(:post).permit(:body)
   end
-
-
 end
